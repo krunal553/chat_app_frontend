@@ -1,0 +1,50 @@
+@import "../../style.scss";
+
+.Input {
+    @include themify($themes) {
+    height: 50px;
+    background-color: themed("inputBg");
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: themed("mainText");
+        font-size: 19px;
+        background: transparent;
+
+        &::placeholder {
+            color: #a9a9a9;
+        }
+    }
+
+    .send {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        img {
+            height: 24px;
+            cursor: pointer;
+        }
+
+        button {
+            border: none;
+            border-radius: 0px 5px 5px 0px;
+            padding: 10px 15px;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            background-color: rgb(2, 37, 56);
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgb(8, 64, 95);
+            }
+        }
+    }
+}
+}

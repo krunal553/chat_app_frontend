@@ -1,0 +1,66 @@
+@import "../../style.scss";
+
+.Chat {
+    @include themify($themes) {
+
+        flex: 2.5;
+        // display: none;
+
+        .chatInfo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            font-weight: bolder;
+            background-color: themed("chatInfoBg");
+
+            @include tablet {
+                box-shadow: 0 0 98px #00000080;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+                font-size: 25px;
+                color: white;
+
+                // img {
+                //     height: 45px;
+                //     width: 45px;
+                //     border-radius: 50%;
+                //     object-fit: cover;
+                // }
+
+                .arrow-back {
+                    display: none;
+
+                    @include tablet {
+                        display: block;
+                        cursor: pointer;
+                        filter: invert(100%);
+                    }
+                }
+
+                .userInfo {
+                    .status {
+                        color: rgb(111, 208, 111);
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+
+        .chatIcons {
+            display: flex;
+            gap: 10px;
+
+            img {
+                height: 24px;
+            }
+        }
+    }
+}

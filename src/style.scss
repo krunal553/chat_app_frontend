@@ -1,0 +1,62 @@
+$themes: (
+  light: (
+    bg: rgb(255, 255, 255),
+    navbarBg: #208aa7,
+    sidebarBg: rgb(233, 233, 233),
+    mainText: black,
+    hoverBg: rgb(223, 223, 223),
+    chatInfoBg: #0c6892,
+    messagesBg: #e1e9e9,
+    inputBg: #e6e6e6,
+    MessageTextColor: black,
+    sendMessageBg: #aed3e1,
+    receivedMessageBg:#f8f1f1,
+  ),
+  dark: (
+    bg: rgb(208, 208, 208),
+    navbarBg: #208aa7,
+    sidebarBg: rgb(43, 43, 43),
+    mainText: white,
+    hoverBg: rgb(57, 57, 57),
+    chatInfoBg: #0c6892,
+    messagesBg: #272727,
+    inputBg: #222222,
+    MessageTextColor: #ffffff,
+    sendMessageBg: #084a5f,
+    receivedMessageBg:#434343,
+  ),
+);
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 960px) {
+    @content;
+  }
+}

@@ -1,0 +1,9 @@
+@import "../../style.scss";
+
+.Sidebar {
+    @include themify($themes) {
+        flex: 1;
+        // display: none;
+        background-color: themed("sidebarBg");
+    }
+}

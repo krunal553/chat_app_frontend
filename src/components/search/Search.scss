@@ -1,0 +1,49 @@
+@import "../../style.scss";
+
+.Search {
+    @include themify($themes) {
+
+    border-bottom: 1px solid gray;
+    overflow-y: scroll;
+    max-height: 600px;
+
+    &::-webkit-scrollbar {
+        width: 7px;
+        /* Width of the entire scrollbar */
+    }
+
+    &::-webkit-scrollbar-track {
+        // background: #ffffff;
+        // background: rgb(196, 183, 210);
+        background: transparent;
+        /* Color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        /* Color of the scrollbar */
+        border-radius: 5px;
+        background: #312fa7;
+        /* Rounded corners */
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        /* Color on hover */
+        background: #0c0a82;
+    }
+
+    .searchForm {
+        padding: 10px;
+
+        input {
+            background-color: transparent;
+            border: none;
+            color: themed("mainText");
+            outline: none;
+
+            &::placeholder {
+                color: #a9a9a9;
+            }
+        }
+    }
+}
+}

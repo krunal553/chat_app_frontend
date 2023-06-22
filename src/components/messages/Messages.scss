@@ -1,0 +1,35 @@
+@import "../../style.scss";
+
+.Messages {
+    @include themify($themes) {
+
+        padding: 10px;
+        height: calc(100% - 160px);
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        background-color: themed("messagesBg");
+
+        &::-webkit-scrollbar {
+            width: 5px;
+            /* Width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+            /* Color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgb(105, 157, 177);
+            /* Color of the scrollbar */
+            border-radius: 10px;
+            /* Rounded corners */
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgb(133, 185, 221);
+            /* Color on hover */
+        }
+
+    }
+}

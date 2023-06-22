@@ -1,0 +1,38 @@
+.LoggedUser {
+    .userInfo {
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+
+        span {
+            font-weight: 600;
+            font-size: large;
+        }
+        img {
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+}
+.popup {
+    display: flex;
+    // align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .item {
+        height: 25px;
+        cursor: pointer;
+        font-weight: 500;
+
+        .modes {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}

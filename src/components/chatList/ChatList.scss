@@ -1,0 +1,103 @@
+@import "../../style.scss";
+
+.ChatList {
+    @include themify($themes) {
+
+        height: calc(100% - 110px);
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 7px;
+            /* Width of the entire scrollbar */
+        }
+
+        &::-webkit-scrollbar-track {
+            // background: #ffffff;
+            // background: rgb(196, 183, 210);
+            background: transparent;
+            /* Color of the tracking area */
+        }
+
+        &::-webkit-scrollbar-thumb {
+            /* Color of the scrollbar */
+            border-radius: 5px;
+            background: #312fa7;
+            /* Rounded corners */
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            /* Color on hover */
+            background: #0c0a82;
+        }
+    }
+}
+
+.chatsContainer {
+    @include themify($themes) {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+
+        &:hover {
+            background-color: themed('hoverBg');
+            box-shadow: 0 0 2px #2b3d7880;
+            border-radius: 2px;
+        }
+
+        .chatInfo {
+            color: gray;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 2px;
+            margin-right: 20px;
+
+            .unseen {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+                color: white;
+                background-color: rgb(27, 135, 119);
+            }
+        }
+
+        .userChat {
+
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: themed("mainText");
+
+
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .userInfo {
+                gap: 0px;
+
+                span {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                p {
+                    font-size: 14px;
+                    color: gray;
+                }
+            }
+        }
+
+
+    }
+}

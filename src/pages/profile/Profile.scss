@@ -1,0 +1,28 @@
+@import "../../style.scss";
+
+.Profile {
+    @include themify($themes) {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-color: rgb(152, 179, 194);
+        background-color: themed("bg");
+
+        .container {
+            box-shadow: 0 0 10px #2b3d7880;
+            background-color: rgb(120, 198, 239);
+            border-radius: 10px;
+            width: 90%;
+            height: 95%;
+            display: flex;
+            overflow: hidden;
+
+            @include tablet {
+                width: 100%;
+                height: 100%;
+                border-radius: 0px;
+            }
+        }
+    }
+}
