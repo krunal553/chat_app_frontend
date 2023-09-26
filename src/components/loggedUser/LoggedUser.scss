@@ -29,7 +29,11 @@
         cursor: pointer;
         font-weight: 500;
 
-        .modes {
+        :hover {
+            font-weight: 700;
+        }
+
+        .icon {
             display: flex;
             align-items: center;
             gap: 10px;

@@ -5,6 +5,10 @@
 
         flex: 2.5;
         // display: none;
+        width: 500px;
+        @include tablet {
+            width: 100vw;
+        }
 
         .chatInfo {
             height: 50px;

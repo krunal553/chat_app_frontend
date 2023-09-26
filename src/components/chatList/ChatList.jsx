@@ -1,21 +1,53 @@
 import './ChatList.scss'
 import { useNavigate } from 'react-router-dom'
 import { chatlist } from '../../thunderClientData'
+import React, { useContext, useState, useRef, useEffect } from 'react';
+import AuthContext from '../../context/AuthContext'
+
+import { useGetUserChatlistQuery } from '../../services/thread'
 
 const ChatList = () => {
 
   const navigate = useNavigate();
+  let { user, authTokens } = useContext(AuthContext)
+  let base_url = 'http://127.0.0.1:8080'
+  const ws = useRef(null);
+
+  const { data, error, isLoading, refetch  } = useGetUserChatlistQuery({ token: authTokens?.access })
+
+  useEffect(() => {
+    // Establish WebSocket connection when component mounts
+    ws.current = new WebSocket('ws://127.0.0.1:8080/ws/user/' + user.pid + '/');
+
+    // Handle received WebSocket messages
+    ws.current.onmessage = (event) => {
+      const message = JSON.parse(event.data);
+      // Handle the received message as needed
+      console.log('Received message:', message);
+      refetch();
+
+    };
+
+    // Clean up WebSocket connection when component unmounts
+    return () => {
+      if (ws.current) {
+        ws.current.close();
+      }
+    };
+  }, []);
+
 
   return (
+
     <div className='ChatList'>
-      {chatlist?.map(chat => (
+      {data?.map(chat => (
         <div
-          key={chat.thread_id}
+          key={chat.id}
           className="chatsContainer"
-          onClick={() => { navigate(`${chat.thread_id}`) }}
+          onClick={() => { navigate(`${chat.id}`) }}
         >
           <div className="userChat">
-            <img src={chat.user_to_chat_with.profile_pic} alt="" />
+            <img src={base_url+chat?.user_to_chat_with.profile_pic} alt="" />
             <div className="userInfo">
               <span >
                 {chat.user_to_chat_with.username}
@@ -29,7 +61,7 @@ const ChatList = () => {
           </div>
           <div className="chatInfo">
             <span className='time'>12:43</span>
-            <span className="unseen">2</span>
+            { chat.un_read_count ? <span className="unseen">{chat.un_read_count}</span> : null}
           </div>
         </div>
       ))}

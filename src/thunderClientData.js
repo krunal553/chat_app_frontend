@@ -11,7 +11,7 @@ const currUser = {
     "followers": []
   }
 
-export const messages = [
+export const demoMessages = [
     {
       "id": "47044501-8e2b-4dae-929d-98bf9abdd392",
       "sender": {

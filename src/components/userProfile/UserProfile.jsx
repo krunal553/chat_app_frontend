@@ -2,9 +2,9 @@ import './UserProfile.scss'
 import React, { useEffect, useState } from 'react';
 
 
-const UserProfile = ({ img }) => {
+const UserProfile = ({ img, name }) => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const openModal = () => {
         setIsOpen(true);
@@ -40,7 +40,7 @@ const UserProfile = ({ img }) => {
 
             {isOpen && (
                 <div className="modal">
-                    <span>Krunal Makwana</span>
+                    <span>{name}</span>
                     {/* <div className="close" onClick={()=>{setIsOpen()}}>x</div> */}
                     <img src={img} alt="" />
 

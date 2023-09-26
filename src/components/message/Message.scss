@@ -6,6 +6,7 @@
         display: flex;
         gap: 20px;
         margin-bottom: 20px;
+        max-width: 1200px;
 
         .messageInfo {
             display: flex;
@@ -26,7 +27,7 @@
         }
 
         .messageContent {
-            max-width: 70%;
+            max-width: 50%;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -36,10 +37,11 @@
                 background-color: themed("receivedMessageBg");
                 padding: 10px 20px;
                 border-radius: 0px 10px 10px 10px;
-                max-width: max-content;
+                max-width: 90%;
                 font-size: 17px;
                 font-weight: 600;
                 box-shadow: 0 0 7px #11111180;
+                overflow-wrap: break-word;
             }
 
             img {
