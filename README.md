@@ -8,7 +8,7 @@ In the project directory, you can run:
 
 ### `Clone the repository`
 ```
-git clone --single-branch -b main https://github.com/krunal553/social-media-frontend.git
+git clone --single-branch -b main https://github.com/krunal553/chat_app_frontend.git
 ```
 
 ### `npm install`
